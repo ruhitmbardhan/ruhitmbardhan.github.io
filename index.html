@@ -11,10 +11,32 @@
       color: #333;
     }
 
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      border-bottom: 2px solid #ddd;
+      padding: 12px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+
+    .navbar a:hover {
+      color: #6a0dad;
+    }
+
     .container {
       max-width: 1000px;
       margin: auto;
-      padding: 40px;
+      padding: 80px 40px 40px;
     }
 
     .header {
@@ -73,6 +95,24 @@
       text-decoration: underline;
     }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+
+    th {
+      background: #6a0dad;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+
     .footer {
       text-align: center;
       margin-top: 40px;
@@ -85,51 +125,43 @@
 
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#home">Home</a>
+  <a href="#about">Profile</a>
+  <a href="#research">Research</a>
+  <a href="#profile">Academic Profile</a>
+  <a href="#links">Links</a>
+</nav>
+
 <div class="container">
 
+  <!-- HEADER -->
   <div class="header">
     <img src="5481e25c-a00c-4ee7-b653-82e8bd4a8c82.jpeg" alt="Ruhit Bardhan">
 
     <div>
-      <h1>Ruhit Bardhan</h1>
+      <h1 id="home">Ruhit Bardhan</h1>
       <p><b>Mathematics Researcher | Computational Intelligence | Mathematics Education</b></p>
     </div>
   </div>
 
+  <!-- PROFILE -->
   <div class="section">
-    <h2>About Me</h2>
+    <h2 id="about">Profile</h2>
 
-    <p>
-      Over the past several years, I have been actively engaged as a researcher, educator, and emerging academic, 
-      working at the intersection of mathematics, education, and interdisciplinary research. My work focuses on 
-      advancing mathematical sciences, integrating computational intelligence, and developing innovative pedagogical 
-      frameworks that connect theory with real-world applications.
-    </p>
+    <p>Over the past several years, I have been actively engaged as a researcher, educator, and emerging academic, working at the intersection of mathematics, education, and interdisciplinary research.</p>
 
-    <p>
-      I have completed my integrated M.Sc.M.Ed. in Mathematics from the Indian Institute of Teacher Education, 
-      Gandhinagar, with a strong focus on both advanced mathematical theory and its pedagogical applications.
-    </p>
+    <p>I have completed my integrated M.Sc.M.Ed. in Mathematics from the Indian Institute of Teacher Education, Gandhinagar.</p>
 
-    <p>
-      My research interests include bi-complex analysis, neutrosophic theory, ethnomathematics, and learning analytics. 
-      I have contributed to peer-reviewed publications, book chapters, and international collaborations, while also 
-      engaging in projects related to educational research and data-driven policy analysis.
-    </p>
+    <p>My research interests include bi-complex analysis, neutrosophic theory, ethnomathematics, and learning analytics.</p>
 
-    <p>
-      Alongside research, I am passionate about teaching, mentoring, and science communication through lectures and 
-      digital platforms, aiming to make mathematics more accessible and meaningful.
-    </p>
-
-    <p>
-      I believe in the philosophy of <b>3Cs — Collaboration, Creativity, and Contribution</b>, driving impactful 
-      research, inclusive education, and meaningful societal change.
-    </p>
+    <p>I believe in the philosophy of <b>3Cs — Collaboration, Creativity, and Contribution</b>.</p>
   </div>
 
+  <!-- RESEARCH -->
   <div class="section">
-    <h2>Research Interests</h2>
+    <h2 id="research">Research Interests</h2>
     <ul>
       <li>Bi-complex Analysis</li>
       <li>Neutrosophic Theory</li>
@@ -138,160 +170,104 @@
       <li>Computational Intelligence</li>
     </ul>
   </div>
-<h2>Academic Profile</h2>
-<div class="section">
-  <h2>Experience Summary</h2>
 
-  <table style="width:100%; border-collapse: collapse;">
-    <tr style="background:#6a0dad; color:white;">
-      <th style="padding:10px;">Area</th>
-      <th style="padding:10px;">Experience</th>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Teaching & Mentoring</td>
-      <td style="padding:10px;">< 1 year</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Research</td>
-      <td style="padding:10px;">5 years (2 yrs 8 months institutional)</td>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Technical</td>
-      <td style="padding:10px;">2 years 2 months</td>
-    </tr>
-  </table>
-</div>
+  <!-- ACADEMIC PROFILE -->
+  <div class="section">
+    <h2 id="profile">Academic Profile</h2>
 
+    <h3>Experience Summary</h3>
+    <table>
+      <tr>
+        <th>Area</th>
+        <th>Experience</th>
+      </tr>
+      <tr>
+        <td>Teaching & Mentoring</td>
+        <td>&lt; 1 year</td>
+      </tr>
+      <tr>
+        <td>Research</td>
+        <td>5 years (2 yrs 8 months institutional)</td>
+      </tr>
+      <tr>
+        <td>Technical</td>
+        <td>2 years 2 months</td>
+      </tr>
+    </table>
 
-<div class="section">
-  <h2>Academic Output & Scholarly Service</h2>
+    <h3>Academic Output & Scholarly Service</h3>
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>Count</th>
+        <th>Role</th>
+      </tr>
+      <tr>
+        <td>Journal Articles</td>
+        <td>6</td>
+        <td>Author</td>
+      </tr>
+      <tr>
+        <td>Book Chapters</td>
+        <td>4</td>
+        <td>Co-author</td>
+      </tr>
+      <tr>
+        <td>Conference Papers</td>
+        <td>1</td>
+        <td>Author</td>
+      </tr>
+    </table>
 
-  <table style="width:100%; border-collapse: collapse;">
-    <tr style="background:#6a0dad; color:white;">
-      <th style="padding:10px;">Category</th>
-      <th style="padding:10px;">Count</th>
-      <th style="padding:10px;">Role</th>
-    </tr>
+    <h3>Professional Competencies</h3>
+    <table>
+      <tr>
+        <th>Teaching</th>
+        <th>Technical</th>
+        <th>Scholarly</th>
+      </tr>
+      <tr>
+        <td>Instructional Design</td>
+        <td>Python, LaTeX</td>
+        <td>Research Collaboration</td>
+      </tr>
+      <tr>
+        <td>Assessment Design</td>
+        <td>R, SPSS</td>
+        <td>Peer Review</td>
+      </tr>
+    </table>
+  </div>
 
-    <tr>
-      <td style="padding:10px;">Journal Articles</td>
-      <td style="padding:10px;">6</td>
-      <td style="padding:10px;">Author / Corresponding</td>
-    </tr>
+  <!-- LINKS -->
+  <div class="section links">
+    <h2 id="links">Profiles & Links</h2>
 
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Book Chapters</td>
-      <td style="padding:10px;">4</td>
-      <td style="padding:10px;">Co-author</td>
-    </tr>
+    <a href="https://www.researchgate.net/profile/Ruhit-Bardhan" target="_blank">ResearchGate</a>
+    <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+    <a href="https://orcid.org" target="_blank">ORCID</a>
+    <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
 
-    <tr>
-      <td style="padding:10px;">Conference Papers</td>
-      <td style="padding:10px;">1</td>
-      <td style="padding:10px;">Author</td>
-    </tr>
+    <br><br>
 
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Edited Books</td>
-      <td style="padding:10px;">2</td>
-      <td style="padding:10px;">Editor</td>
-    </tr>
+    <a href="https://drive.google.com" target="_blank"
+       style="background:#6a0dad;color:white;padding:8px 15px;border-radius:6px;">
+       📄 Download CV
+    </a>
+  </div>
 
-    <tr>
-      <td style="padding:10px;">Authored Books</td>
-      <td style="padding:10px;">1</td>
-      <td style="padding:10px;">Author</td>
-    </tr>
-
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Patents</td>
-      <td style="padding:10px;">1</td>
-      <td style="padding:10px;">Inventor</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">Articles Reviewed</td>
-      <td style="padding:10px;">17</td>
-      <td style="padding:10px;">Reviewer</td>
-    </tr>
-  </table>
-</div>
-
-
-<div class="section">
-  <h2>Professional Competencies</h2>
-
-  <table style="width:100%; border-collapse: collapse;">
-    <tr style="background:#6a0dad; color:white;">
-      <th style="padding:10px;">Teaching</th>
-      <th style="padding:10px;">Admin</th>
-      <th style="padding:10px;">Technical</th>
-      <th style="padding:10px;">Scholarly</th>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">Instructional Design</td>
-      <td style="padding:10px;">ERP & LMS</td>
-      <td style="padding:10px;">Python, LaTeX</td>
-      <td style="padding:10px;">Research Collaboration</td>
-    </tr>
-
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Assessment Design</td>
-      <td style="padding:10px;">Workflow Coordination</td>
-      <td style="padding:10px;">MATLAB, Scilab</td>
-      <td style="padding:10px;">Manuscript Editing</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">Assessment Analytics</td>
-      <td style="padding:10px;">Learning Analytics</td>
-      <td style="padding:10px;">R, SPSS, JASP</td>
-      <td style="padding:10px;">Peer Review</td>
-    </tr>
-
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Blended Learning</td>
-      <td style="padding:10px;">Resource Optimization</td>
-      <td style="padding:10px;">SurveyCTO, MS Tools</td>
-      <td style="padding:10px;">Academic Communication</td>
-    </tr>
-  </table>
-</div>
-
-  
-<div class="section links">
-  <h2>Profiles & Links</h2>
-
-  <a href="https://www.researchgate.net/profile/Ruhit-Bardhan" target="_blank">ResearchGate</a>
-
-  <a href="https://scholar.google.com/citations?user=I8dN0ZsAAAAJ" target="_blank">Google Scholar</a>
-
-  <a href="https://www.scopus.com/authid/detail.uri?authorId=60105954400" target="_blank">Scopus</a>
-
-  <a href="https://orcid.org/0000-0002-6170-4816" target="_blank">ORCID</a>
-
-  <a href="https://www.linkedin.com/in/ruhit-bardhan/" target="_blank">LinkedIn</a>
-
-  <a href="https://drive.google.com/drive/folders/1-jIdbkk4rQtgx1xmrkELcM54rw8iXZBq" target="_blank" style="background:#6a0dad;color:white;padding:8px 15px;border-radius:6px;">📄 Download CV</a>
-
-</div>
-
+  <!-- FOOTER -->
   <div class="footer">
     © 2026 Ruhit Bardhan | Academic Website
   </div>
 
 </div>
-</div>
 
-<!-- Visitor Counter -->
+<!-- VISITOR COUNTER -->
 <div style="text-align:center; margin-top:30px;">
-  <a href='http://www.freevisitorcounters.com'>Free Visitor Counters</a> 
   <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=978a2a63b8d47bfeea2624bf382ddbbcadb8d7ea'></script>
   <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1520520/t/13"></script>
 </div>
 
-</body>
-</html>
 </body>
 </html>
