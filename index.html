@@ -1,317 +1,604 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ruhit Bardhan</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruhit Bardhan — Mathematics & Mathematics Education</title>
+<meta name="description" content="Ruhit Bardhan: research in neutrosophic decision sciences, spectral hypergraph theory, bi-complex analysis, ethnomathematics and learning analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F5FA; --surface:#FFFFFF; --ink:#1D1930; --muted:#615C74; --line:#E2DFEC;
+  --violet:#4B2A8C; --violet-soft:#EEE8F8; --gold:#B5851F; --gold-soft:#F6ECD3;
+  --edu:#1F6E6A; --edu-soft:#E2F1EF;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14111D; --surface:#1C1828; --ink:#ECE9F5; --muted:#A49FB6; --line:#2F2A3F;
+    --violet:#B9A0F2; --violet-soft:#2A2340; --gold:#E2B95A; --gold-soft:#332A17;
+    --edu:#6FC7BF; --edu-soft:#17302E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14111D; --surface:#1C1828; --ink:#ECE9F5; --muted:#A49FB6; --line:#2F2A3F;
+  --violet:#B9A0F2; --violet-soft:#2A2340; --gold:#E2B95A; --gold-soft:#332A17;
+  --edu:#6FC7BF; --edu-soft:#17302E; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.65}
+a{color:var(--violet);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #f4f0fa, #e6d9f7);
-      color: #333;
-    }
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:60px}
+.nav .brand{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav ul a{font-family:var(--sans);font-size:.88rem;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;white-space:nowrap}
+.nav ul a:hover{color:var(--ink);background:var(--violet-soft)}
 
-    /* NAVBAR */
-    .navbar {
-      position: sticky;
-      top: 0;
-      background-color: white;
-      border-bottom: 2px solid #ddd;
-      padding: 12px;
-      text-align: center;
-      z-index: 1000;
-    }
+/* hero */
+.hero{padding:64px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.who{display:flex;gap:24px;align-items:flex-start}
+.portrait{flex:none;width:132px;height:160px;border-radius:4px;overflow:hidden;background:var(--violet-soft);border:1px solid var(--line);display:grid;place-items:center;font-size:2.4rem;color:var(--violet);font-weight:600}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-size:clamp(2.6rem,5.4vw,4rem);line-height:1.02;font-weight:500;margin:0 0 10px;letter-spacing:-.02em}
+.role{font-family:var(--sans);font-size:.98rem;color:var(--muted);margin:0;line-height:1.5}
+.role b{color:var(--ink);font-weight:600}
+.lede{font-size:1.25rem;line-height:1.55;margin:28px 0 22px;max-width:36ch}
+.profiles{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--sans);font-size:.88rem}
+.profiles a{text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px}
+.profiles a:hover{border-color:var(--violet);color:var(--violet)}
+.profiles a.cv{background:var(--violet);border-color:var(--violet);color:var(--surface)}
+.profiles a.cv:hover{color:var(--surface);filter:brightness(1.1)}
 
-    .navbar a {
-      color: #333;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-    }
+/* research map */
+.map{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 12px}
+.map-head{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin:0 0 4px;display:flex;justify-content:space-between;gap:12px}
+.map svg{width:100%;height:auto;display:block}
+.map .node{cursor:pointer}
+.map .node circle{transition:transform .2s ease;transform-box:fill-box;transform-origin:center}
+.map .node:hover circle,.map .node:focus-visible circle{transform:scale(1.08)}
+.map .node:focus{outline:none}
+.map .node:focus-visible circle{stroke:var(--gold);stroke-width:3}
+.map text{font-family:var(--sans)}
+.map-note{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:6px 0 0}
 
-    .navbar a:hover {
-      color: #6a0dad;
-    }
+/* phd banner */
+.phd{margin:8px 0 0}
+.phd .box{border:1px solid var(--gold);background:var(--gold-soft);border-radius:10px;padding:26px 30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.phd h2{font-size:1.5rem;font-weight:500;margin:0 0 6px}
+.phd p{margin:0;max-width:68ch}
+.phd .actions{display:flex;flex-direction:column;gap:8px;font-family:var(--sans);font-size:.92rem}
+.btn{display:inline-block;text-align:center;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:500}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.ghost{border:1px solid var(--ink);color:var(--ink)}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 80px 40px 40px;
-    }
+/* sections */
+section.block{padding:72px 0 8px}
+.block .wrap{display:grid;grid-template-columns:220px 1fr;gap:40px}
+.block h2.side{font-size:1.7rem;font-weight:500;line-height:1.15;margin:0;position:sticky;top:84px;align-self:start;letter-spacing:-.01em}
+.block h2.side small{display:block;font-family:var(--sans);font-size:.85rem;color:var(--muted);font-weight:400;margin-top:8px;letter-spacing:0}
+.prose p{margin:0 0 1em;max-width:68ch}
+h3{font-size:1.3rem;font-weight:500;margin:0 0 4px}
 
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+/* areas */
+.umbrella{margin-bottom:28px}
+.umbrella > h3{font-family:var(--sans);font-size:.95rem;font-weight:600;margin-bottom:12px}
+.umbrella.math > h3{color:var(--violet)}
+.umbrella.edu > h3{color:var(--edu)}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.area{padding:16px 18px 18px 0;border-bottom:1px solid var(--line)}
+.area + .area{padding-left:18px;border-left:1px solid var(--line)}
+.area h4{font-size:1.08rem;font-weight:600;margin:0 0 6px;line-height:1.3}
+.area p{font-size:.98rem;margin:0 0 10px;color:var(--muted)}
+.area button{font-family:var(--sans);font-size:.84rem;background:none;border:0;padding:0;color:var(--violet);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.edu .area button{color:var(--edu)}
 
-    .header img {
-      width: 180px;
-      border-radius: 12px;
-      border: 4px solid #6a0dad;
-    }
+/* stats line */
+.tally{font-family:var(--sans);font-size:.95rem;color:var(--muted);margin:0 0 22px;max-width:70ch}
+.tally b{color:var(--ink);font-weight:600}
 
-    h1 {
-      color: #6a0dad;
-      margin-bottom: 5px;
-    }
+/* filters */
+.filters{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;font-family:var(--sans)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:.84rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 12px;border-radius:999px;cursor:pointer}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip .n{opacity:.6;margin-left:4px}
+.filter-label{font-size:.8rem;color:var(--muted);margin-right:4px;align-self:center}
+.search{font:inherit;font-size:.9rem;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);width:100%;max-width:360px}
 
-    h2 {
-      color: #6a0dad;
-      margin-top: 30px;
-      border-left: 5px solid #6a0dad;
-      padding-left: 10px;
-    }
+.pub-group{margin-bottom:34px}
+.pub-group h3{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:4px}
+.pub-group h3 .count{font-family:var(--sans);font-size:.85rem;color:var(--muted);font-weight:400}
+.pub-group h3 .dot{width:10px;height:10px;border-radius:50%;flex:none;align-self:center}
+.pub-group .desc{font-size:.95rem;color:var(--muted);margin:6px 0 8px}
+.publist{list-style:none;margin:0;padding:0}
+.pub{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.pub-year{font-family:var(--sans);font-size:.85rem;color:var(--muted);padding-top:4px}
+.pub-title{font-weight:500;margin:0;line-height:1.4}
+.pub-authors{font-family:var(--sans);font-size:.88rem;color:var(--muted);margin:4px 0 0}
+.pub-authors strong{color:var(--ink);font-weight:600}
+.pub-venue{font-size:.98rem;margin:2px 0 0}
+.pub-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;font-family:var(--sans);font-size:.76rem}
+.badge{padding:2px 8px;border-radius:4px;background:var(--violet-soft);color:var(--violet)}
+.badge.t-talk,.badge.t-thesis,.badge.t-expository{background:var(--line);color:var(--muted)}
+.badge.t-patent,.badge.t-book,.badge.t-edited{background:var(--gold-soft);color:var(--gold)}
+.badge.t-preprint{background:transparent;border:1px dashed var(--muted);color:var(--muted)}
+.also{color:var(--muted);padding:2px 0}
+.empty{font-family:var(--sans);color:var(--muted);padding:20px 0}
+.empty button{font:inherit;color:var(--violet);background:none;border:0;cursor:pointer;text-decoration:underline;padding:0}
 
-    p {
-      line-height: 1.7;
-      text-align: justify;
-    }
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.timeline .when{font-family:var(--sans);font-size:.88rem;color:var(--muted);padding-top:3px}
+.timeline h3{font-size:1.15rem;font-weight:600}
+.timeline .org{margin:0;font-style:italic}
+.timeline .detail{margin:6px 0 0;font-size:1rem;color:var(--muted);max-width:64ch}
+.now{display:inline-block;font-family:var(--sans);font-size:.72rem;background:var(--edu-soft);color:var(--edu);padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:middle;font-style:normal}
 
-    .section {
-      margin-top: 25px;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px 36px}
+.plain{list-style:none;margin:0;padding:0}
+.plain li{padding:10px 0;border-bottom:1px solid var(--line);font-size:1rem}
+.plain li span{display:block;font-family:var(--sans);font-size:.84rem;color:var(--muted)}
+.sub{font-family:var(--sans);font-size:.95rem;font-weight:600;margin:28px 0 6px}
+.sub:first-child{margin-top:0}
 
-    ul {
-      line-height: 1.8;
-    }
+.contact{font-size:1.2rem}
+.contact p{margin:0 0 8px}
+footer{border-top:1px solid var(--line);margin-top:80px;padding:28px 0 40px;font-family:var(--sans);font-size:.84rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer a{color:var(--muted)}
 
-    .links a {
-      text-decoration: none;
-      color: #6a0dad;
-      margin-right: 15px;
-      font-weight: bold;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 10px;
-    }
-
-    th {
-      background: #6a0dad;
-      color: white;
-    }
-
-    tr:nth-child(even) {
-      background: #f2f2f2;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
-    }
-
-  </style>
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .block .wrap{grid-template-columns:1fr;gap:18px}
+  .block h2.side{position:static}
+  .areas{grid-template-columns:1fr}
+  .area + .area{padding-left:0;border-left:0}
+  .phd .box{grid-template-columns:1fr}
+  .phd .actions{flex-direction:row;flex-wrap:wrap}
+  .cols{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .wrap{padding:0 18px}
+  .who{flex-direction:column}
+  .portrait{width:112px;height:136px}
+  .nav .brand{display:none}
+  .nav ul{margin-left:0}
+  .timeline li{grid-template-columns:1fr;gap:4px}
+  .pub{grid-template-columns:1fr;gap:2px}
+}
+</style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <a href="#home">Home</a>
-  <a href="#about">Profile</a>
-  <a href="#research">Research Interests</a>
-  <a href="#profile">Academic Profile</a>
-  <a href="#links">CV & Other Important Links</a>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Ruhit Bardhan</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<div class="container">
-
-  <!-- HEADER -->
-  <div class="header">
-    <img src="5481e25c-a00c-4ee7-b653-82e8bd4a8c82.jpeg" alt="Ruhit Bardhan">
-
+<header class="hero" id="top">
+  <div class="wrap">
     <div>
-      <h1 id="home">Ruhit Bardhan</h1>
-      <p><b>Mathematics Researcher | Computational Intelligence | Mathematics Education</b></p>
+      <div class="who">
+        <div class="portrait" id="portrait">
+          <img src="5481e25c-a00c-4ee7-b653-82e8bd4a8c82.jpeg" alt="Portrait of Ruhit Bardhan" onerror="this.remove();document.getElementById('portrait').textContent='RB'">
+        </div>
+        <div>
+          <h1>Ruhit Bardhan</h1>
+          <p class="role"><b>Academic Associate, Operations Management</b><br>Indian School of Business<br>M.Sc. (Mathematics), M.Ed.</p>
+        </div>
+      </div>
+      <p class="lede">I study how mathematics can reason under uncertainty, and how people come to learn it — from neutrosophic decision models and hypergraph spectra to India’s indigenous counting systems.</p>
+      <div class="profiles">
+        <a class="cv" href="https://drive.google.com/drive/folders/1-jIdbkk4rQtgx1xmrkELcM54rw8iXZBq" target="_blank" rel="noopener">Download CV</a>
+        <a href="https://scholar.google.com/citations?user=I8dN0ZsAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=60105954400" target="_blank" rel="noopener">Scopus</a>
+        <a href="https://orcid.org/0000-0002-6170-4816" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://www.researchgate.net/profile/Ruhit-Bardhan" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://www.linkedin.com/in/ruhit-bardhan/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <figure class="map" aria-labelledby="map-cap">
+      <p class="map-head"><span id="map-cap">How my research areas connect</span><span>Select an area</span></p>
+      <svg id="map" viewBox="0 0 520 380" role="group" aria-label="Research areas as a network. Larger circles mean more work; lines show shared publications."></svg>
+      <p class="map-note">Circle size reflects the amount of work in each area; a line means at least one publication spans both.</p>
+    </figure>
+  </div>
+</header>
+
+<section class="phd" aria-labelledby="phd-h">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <h2 id="phd-h">Open to doctoral positions</h2>
+        <p>I’m looking for a PhD where soft computing meets learning: neutrosophic and fuzzy models of cognition and assessment, spectral methods on higher-order (super)hypergraphs, and culturally grounded mathematics education. I bring nine journal articles, eight book chapters, and three years of field and statistical research experience.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="mailto:ruhitmbardhan@gmail.com?subject=PhD%20opportunity">Email me</a>
+        <a class="btn ghost" href="https://drive.google.com/drive/folders/1-jIdbkk4rQtgx1xmrkELcM54rw8iXZBq" target="_blank" rel="noopener">View CV</a>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- PROFILE -->
-  <div class="section">
-    <h2 id="about">Profile</h2>
-
-    <p> 
-      Over the past several years, I have been actively engaged as a researcher, educator, and emerging academic, working at the intersection of mathematics, education, and interdisciplinary research. My work focuses on advancing mathematical sciences, integrating computational intelligence, and developing innovative pedagogical frameworks that connect theory with real-world applications.
-    </p> 
-    <p>
-      I have completed my integrated M.Sc.M.Ed. in Mathematics from the Indian Institute of Teacher Education, Gandhinagar, with a strong focus on both advanced mathematical theory and its pedagogical applications.
-    </p>
-    <p> 
-      My research interests include bi-complex analysis, neutrosophic theory, ethnomathematics, and learning analytics. I have contributed to peer-reviewed publications, book chapters, and international collaborations, while also engaging in projects related to educational research and data-driven policy analysis.
-    </p>
-    <p>
-      Alongside research, I am passionate about teaching, mentoring, and science communication through lectures and digital platforms, aiming to make mathematics more accessible and meaningful.
-    </p> 
-    <p>
-      I believe in the philosophy of <b>3Cs — Collaboration, Creativity, and Contribution</b>, driving impactful research, inclusive education, and meaningful societal change. 
-    </p>
+<section class="block" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <h2 class="side" id="about-h">About</h2>
+    <div class="prose">
+      <p>I work at the meeting point of mathematics and mathematics education. On the mathematical side, I build decision models that handle truth, falsity and indeterminacy separately, and study Laplacians on higher-order hypergraphs. On the educational side, I examine what students bring to the classroom — anxiety, self-efficacy, cultural ways of counting — and how analytics and AI can respond to it.</p>
+      <p>I completed an integrated M.Sc.M.Ed. in Mathematics at the Indian Institute of Teacher Education, Gandhinagar, after a B.Sc.B.Ed. at Tripura University. From 2023 to 2025 I worked as a remote pre-doctoral researcher with Prof. Milton Rosa and Prof. Daniel C. Orey at the Universidade Federal de Ouro Preto, Brazil, on ethnomathematics in India. I now support teaching in operations and supply chain management at the Indian School of Business.</p>
+      <p>My working philosophy is the three Cs: collaboration, creativity and contribution.</p>
+    </div>
   </div>
+</section>
 
-  <!-- RESEARCH -->
-<div class="section">
-  <h2 id="research">Research Interests</h2>
-  <ul>
-    <li>Bi-complex Analysis</li>
-    <li>Neutrosophic Theory</li>
-    <li>Ethnomathematics</li>
-    <li>Learning Analytics</li>
-    <li>Computational Intelligence</li>
-  </ul>
-</div>
-
-<!-- ACADEMIC PROFILE -->
-<div class="section">
-  <h2 id="profile">Academic Profile</h2>
-
-  <!-- EXPERIENCE -->
-  <h3>Experience Summary</h3>
-  <table style="width:100%; border-collapse: collapse;">
-    <tr style="background:#6a0dad; color:white;">
-      <th style="padding:10px;">Area</th>
-      <th style="padding:10px;">Experience</th>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Teaching & Mentoring</td>
-      <td style="padding:10px;">&lt; 1 year</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Research</td>
-      <td style="padding:10px;">5 years (2 yrs 8 months institutional)</td>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Technical</td>
-      <td style="padding:10px;">2 years 2 months</td>
-    </tr>
-  </table>
-
-  <!-- OUTPUT -->
-  <h3>Academic Output & Scholarly Service</h3>
-  <table style="width:100%; border-collapse: collapse;">
-    <tr style="background:#6a0dad; color:white;">
-      <th style="padding:10px;">Category</th>
-      <th style="padding:10px;">Count</th>
-      <th style="padding:10px;">Role</th>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Journal Articles</td>
-      <td style="padding:10px;">6</td>
-      <td style="padding:10px;">Author / Corresponding</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Book Chapters</td>
-      <td style="padding:10px;">5</td>
-      <td style="padding:10px;">Sole/Co-author</td>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Conference Papers</td>
-      <td style="padding:10px;">1</td>
-      <td style="padding:10px;">Author</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Edited Books</td>
-      <td style="padding:10px;">2</td>
-      <td style="padding:10px;">Editor</td>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Authored Books</td>
-      <td style="padding:10px;">1</td>
-      <td style="padding:10px;">Author</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Patents</td>
-      <td style="padding:10px;">1</td>
-      <td style="padding:10px;">Inventor</td>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Articles Reviewed</td>
-      <td style="padding:10px;">17</td>
-      <td style="padding:10px;">Reviewer</td>
-    </tr>
-  </table>
-
-  <!-- COMPETENCIES -->
-  <h3>Professional Competencies</h3>
-  <table style="width:100%; border-collapse: collapse;">
-    <tr style="background:#6a0dad; color:white;">
-      <th style="padding:10px;">Teaching</th>
-      <th style="padding:10px;">Admin</th>
-      <th style="padding:10px;">Technical</th>
-      <th style="padding:10px;">Scholarly</th>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Instructional Design</td>
-      <td style="padding:10px;">ERP & LMS</td>
-      <td style="padding:10px;">Python, LaTeX</td>
-      <td style="padding:10px;">Research Collaboration</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Assessment Design</td>
-      <td style="padding:10px;">Workflow Coordination</td>
-      <td style="padding:10px;">MATLAB, Scilab</td>
-      <td style="padding:10px;">Manuscript Editing</td>
-    </tr>
-    <tr>
-      <td style="padding:10px;">Assessment Analytics</td>
-      <td style="padding:10px;">Learning Analytics</td>
-      <td style="padding:10px;">R, SPSS, JASP</td>
-      <td style="padding:10px;">Peer Review</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="padding:10px;">Blended Learning</td>
-      <td style="padding:10px;">Resource Optimization</td>
-      <td style="padding:10px;">SurveyCTO, MS Tools</td>
-      <td style="padding:10px;">Academic Communication</td>
-    </tr>
-  </table>
-
-</div>
-  <!-- LINKS -->
-  <div class="section links">
-    <h2 id="links">Profiles & Links</h2>
-
-    <a href="https://www.researchgate.net/profile/Ruhit-Bardhan" target="_blank">ResearchGate</a>
-    <a href="https://scholar.google.com/citations?user=I8dN0ZsAAAAJ" target="_blank">Google Scholar</a>
-    <a href="https://https://www.scopus.com/authid/detail.uri?authorId=60105954400" target="_blank">Scopus</a>
-    <a href="https://orcid.org/0000-0002-6170-4816" target="_blank">ORCID</a>
-    <a href="https://www.linkedin.com/in/ruhit-bardhan/" target="_blank">LinkedIn</a>
-    <a href="https://drive.google.com/drive/folders/1-jIdbkk4rQtgx1xmrkELcM54rw8iXZBq" target="_blank" style="background:#6a0dad;color:white;padding:8px 15px;border-radius:6px;">📄 Download CV</a>
-
-    
+<section class="block" id="research" aria-labelledby="research-h">
+  <div class="wrap">
+    <h2 class="side" id="research-h">Research areas<small>Six threads in two fields</small></h2>
+    <div id="areas"></div>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    © 2026 Ruhit Bardhan | Academic Website
+<section class="block" id="publications" aria-labelledby="pubs-h">
+  <div class="wrap">
+    <h2 class="side" id="pubs-h">Publications<small>Grouped by research area</small></h2>
+    <div>
+      <p class="tally" id="tally"></p>
+      <div class="filters">
+        <div class="chips" id="area-chips" role="group" aria-label="Filter by research area"></div>
+        <div class="chips" id="type-chips" role="group" aria-label="Filter by publication type"></div>
+        <input class="search" id="q" type="search" placeholder="Search titles, venues or co-authors" aria-label="Search publications">
+      </div>
+      <div id="pubs" aria-live="polite"></div>
+    </div>
   </div>
+</section>
 
-</div>
+<section class="block" id="experience" aria-labelledby="exp-h">
+  <div class="wrap">
+    <h2 class="side" id="exp-h">Research &amp; professional experience</h2>
+    <ol class="timeline">
+      <li><div class="when">Sept 2026 – present</div><div><h3>Academic Associate, Operations Management <span class="now">Current</span></h3><p class="org">Indian School of Business</p></div></li>
+      <li><div class="when">Apr – Sept 2026</div><div><h3>Research Associate</h3><p class="org">Indian Institute of Teacher Education, Gandhinagar</p></div></li>
+      <li><div class="when">Nov 2023 – Jun 2025</div><div><h3>Pre-doctoral Researcher (remote)</h3><p class="org">Departamento de Educação Matemática, Universidade Federal de Ouro Preto, Brazil</p><p class="detail">With Prof. Milton Rosa and Prof. Daniel C. Orey on “Mathematics Through Diverse Lenses: Ethnomathematics in India and its Development”.</p></div></li>
+      <li><div class="when">Jan – Jun 2024</div><div><h3>Statistical Assistant</h3><p class="org">Indian Institute of Public Administration, New Delhi</p><p class="detail">Impact assessment of Bhoomi Samman districts for the Department of Land Resources, Ministry of Rural Development. Collected data with SurveyCTO, validated and cleaned a dataset of about 5,000 respondents, and prepared statistical tables for official reporting.</p></div></li>
+      <li><div class="when">Jun 2021 – Mar 2023</div><div><h3>Field Investigator</h3><p class="org">Indian Institute of Public Administration</p><p class="detail">Forest Rights Act, 2006: an assessment of ground reality in seven Indian states, funded by the National Human Rights Commission.</p></div></li>
+    </ol>
+  </div>
+</section>
 
-<!-- VISITOR COUNTER -->
-<div style="text-align:center; margin-top:30px;">
-  <a href="http://www.freevisitorcounters.com">Free Visitor Counters</a>
-  <script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=978a2a63b8d47bfeea2624bf382ddbbcadb8d7ea"></script>
-  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1520520/t/13"></script>
-</div>
+<section class="block" id="teaching" aria-labelledby="teach-h">
+  <div class="wrap">
+    <h2 class="side" id="teach-h">Teaching &amp; mentoring</h2>
+    <div>
+      <p class="sub">Teaching Assistant, Indian School of Business (2026)</p>
+      <ul class="plain">
+        <li>Supply Chain &amp; Strategy Management<span>AMPOS, Term 3, with Prof. Amar Sapra</span></li>
+        <li>A/B Testing and Tech Product Experimentation<span>PGPM, Term 5, with Dr. Aruna Rajan</span></li>
+        <li>Logistics &amp; Supply Chain Management<span>PGPM, Term 4, with Prof. Subodha Kumar</span></li>
+      </ul>
+      <p class="sub">Teaching Assistant, Central Institute of Education, University of Delhi (Fall 2025)</p>
+      <ul class="plain">
+        <li>Inclusive School<span>B.Ed. semester I</span></li>
+        <li>Evolution of Indian Education<span>ITEP semester I</span></li>
+      </ul>
+      <p class="sub">Mentoring and outreach</p>
+      <ul class="plain">
+        <li>Mentor, Init-Math 2023 summer school<span>Linear algebra, analysis and group theory; MTTS Trust, funded by NBHM; ICFAI University</span></li>
+        <li>Open video lectures on number theory and cryptography<span>Eight lectures on YouTube for about 1,100 subscribers</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
+<section class="block" id="talks" aria-labelledby="talks-h">
+  <div class="wrap">
+    <h2 class="side" id="talks-h">Talks, media &amp; schools</h2>
+    <div class="cols">
+      <div>
+        <p class="sub">Invited talk and press</p>
+        <ul class="plain">
+          <li>Indigenous tribal education systems and their relevance today<span>Invited speaker, All India Radio (Akashvani), Ahmedabad, 2026</span></li>
+          <li>Release of the Mathematics Education Framework in the Era of Education 4.0<span>Front-page coverage, North East Colors; Lok Bhawan, Tripura</span></li>
+          <li>Contributions to mathematics education on National Mathematics Day<span>The Tripura Times</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="sub">Selected schools and workshops</p>
+        <ul class="plain">
+          <li>Teacher’s Enrichment Workshop: Multivariable Analysis &amp; Linear Algebra<span>National Centre for Mathematics (IIT Bombay &amp; TIFR), 2025</span></li>
+          <li>Preliminary Arizona Winter School: symmetries of root systems and local fields<span>University of Arizona, 2024</span></li>
+          <li>Research-based curriculum symposium<span>HBCSE, TIFR Mumbai, 2024</span></li>
+          <li>Number Theory and Cryptography<span>NIT Jamshedpur, 2024</span></li>
+          <li>Mathematical Concepts in the Sciences and Humanities<span>Max Planck Institute for Mathematics in the Sciences, 2022</span></li>
+          <li>Mathematics Training and Talent Search, Level 1<span>IISER Thiruvananthapuram, 2022</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="service" aria-labelledby="service-h">
+  <div class="wrap">
+    <h2 class="side" id="service-h">Service, awards &amp; collaborators</h2>
+    <div class="cols">
+      <div>
+        <p class="sub">Editorial and review</p>
+        <ul class="plain">
+          <li>Editorial Board Member<span>Bulletin of Tripura Mathematical Society, 2026–27</span></li>
+          <li>Reviewer, 25 manuscripts<span>Journal of Advances in Mathematics and Computer Science; Asian Research Journal of Mathematics; Decision Making and Analysis; African Educational Research Journal; IGI Global edited volumes; and others</span></li>
+        </ul>
+        <p class="sub">Awards</p>
+        <ul class="plain">
+          <li>Best Presentation Award, Science Manthan 2025<span>Working model on the Fundamental Theorem of Calculus, CHARUSAT</span></li>
+          <li>Third position, TUET national test<span>Tripura University, 2019</span></li>
+        </ul>
+        <p class="sub">Memberships</p>
+        <ul class="plain">
+          <li>American Mathematical Society; American Psychological Association; ISFSEA; IAENG; Tripura Mathematical Society</li>
+        </ul>
+      </div>
+      <div>
+        <p class="sub">Collaborators and mentors</p>
+        <ul class="plain">
+          <li>Prof. Milton Rosa<span>Universidade Federal de Ouro Preto, Brazil</span></li>
+          <li>Prof. Daniel C. Orey<span>Universidade Federal de Ouro Preto, Brazil</span></li>
+          <li>Prof. Florentin Smarandache<span>University of New Mexico, USA</span></li>
+          <li>Prof. Surapati Pramanik<span>West Bengal, India</span></li>
+          <li>Prof. Binod Chandra Tripathy<span>Tripura University, India</span></li>
+          <li>Prof. Debarshi Mukherjee<span>New Delhi, India</span></li>
+          <li>Dr. Paras D. Uchat<span>Indian Institute of Teacher Education, Gandhinagar</span></li>
+          <li>Dr. Suman Das<span>National Institute of Technology Calicut</span></li>
+        </ul>
+        <p class="sub">Responsibilities</p>
+        <ul class="plain">
+          <li>Member, Central Committee, Student Startup and Innovation Policy Cell<span>IITE Gandhinagar, 2026 – present</span></li>
+          <li>In-charge, Student Activity Cell<span>Tripura University, 2021–23</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="education" aria-labelledby="edu-h">
+  <div class="wrap">
+    <h2 class="side" id="edu-h">Education</h2>
+    <ol class="timeline">
+      <li><div class="when">2023 – 2026</div><div><h3>Integrated M.Sc.M.Ed. in Mathematics</h3><p class="org">Indian Institute of Teacher Education, Gandhinagar</p><p class="detail">CGPA 7.27/10. M.Sc. dissertation: Algebra of Bi-complex Numbers. M.Ed. dissertation: Mathematical Anxiety, Need for Cognition and General Self-Efficacy as Predictors of Mathematics Level Selection among CBSE Students.</p></div></li>
+      <li><div class="when">2019 – 2023</div><div><h3>Integrated B.Sc.B.Ed. in Mathematics</h3><p class="org">Tripura University (A Central University), Agartala</p><p class="detail">CGPA 6.85/10. Dissertation: A Study on Certain Diophantine Equations and its Application in the Field of Traffic Network.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <h2 class="side" id="contact-h">Contact</h2>
+    <div class="contact">
+      <p><a href="mailto:ruhitmbardhan@gmail.com">ruhitmbardhan@gmail.com</a></p>
+      <p>SAS Nagar, Punjab, India</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ruhit Bardhan. Last updated November 2026.</span>
+    <span>
+      <a href="http://www.freevisitorcounters.com">Free Visitor Counters</a>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=978a2a63b8d47bfeea2624bf382ddbbcadb8d7ea"></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1520520/t/13"></script>
+    </span>
+  </div>
+</footer>
+
+<script>
+const AREAS = {
+  neut:{field:"math",name:"Neutrosophic sets & decision sciences",short:"Neutrosophic & decisions",
+    desc:"Neutrosophic and fuzzy models for decisions under indeterminacy: TOPSIS, soft relations and multi-criteria selection, applied to materials, cyber-law and AI governance."},
+  graph:{field:"math",name:"Spectral & applied graph theory",short:"Graph theory",
+    desc:"Laplacians and spectral properties of higher-order super hypergraphs, and network models of cognitive skills and tasks."},
+  bicx:{field:"math",name:"Bi-complex analysis & number theory",short:"Bi-complex analysis",
+    desc:"Algebra, representation and Cesàro summability of bi-complex sequences, with earlier work on Diophantine equations."},
+  ethno:{field:"edu",name:"Ethnomathematics",short:"Ethnomathematics",
+    desc:"Indigenous counting systems of India, ethnomodelling and culturally grounded mathematics learning."},
+  la:{field:"edu",name:"Learning analytics & AI in education",short:"Learning analytics & AI",
+    desc:"Cognition, anxiety and assessment, modelled under uncertainty; human–AI learning ecosystems."},
+  ped:{field:"edu",name:"Curriculum, pedagogy & policy",short:"Pedagogy & policy",
+    desc:"Curriculum design, hands-on mathematics, and how policy such as NEP 2020 reaches classrooms."}
+};
+const FIELDS = {math:"Mathematics", edu:"Mathematics education"};
+const TYPES = {journal:"Journal article",chapter:"Book chapter",book:"Authored book",edited:"Edited book",conference:"Conference paper",patent:"Patent",preprint:"Under review",thesis:"Dissertation",talk:"Presentation",expository:"Expository"};
+
+const PUBS = [
+ {y:2026,t:"journal",a:["la"],title:"Agency, cognition and mathematical learning in agentic human–AI ecosystems",au:"Bardhan, R., Das, S., Ganati, G. A., Tolasa, F. T., & Alsarhan, A.",v:"F1000Research",d:"15, 1652"},
+ {y:2026,t:"journal",a:["neut"],title:"Evaluation of digital evidence reliability using neutrosophic TOPSIS: an Indian cyber-law perspective",au:"Bardhan, R., & Ghosh, R.",v:"Boletim da Sociedade Paranaense de Matemática",d:"44, 1–11"},
+ {y:2026,t:"journal",a:["graph"],title:"Nonlinear p-Laplacians on higher-order super hypergraphs and their spectral properties",au:"Uchat, P., Bardhan, R., & Das, S.",v:"Boletim da Sociedade Paranaense de Matemática",d:"44, 1–8"},
+ {y:2025,t:"journal",a:["neut"],title:"A neutrosophic TOPSIS framework for multi-criteria selection of functionally graded materials",au:"Bardhan, R., Chauhan, D., & Sahni, M.",v:"Procedia Structural Integrity",d:"72, 507–519"},
+ {y:2025,t:"journal",a:["la","graph"],title:"CogniSkillNet: a multi-domain cognitive skill–task network for criterion-referenced assessment",au:"Bardhan, R., Uchat, P., Das, S., & Das, A. K.",v:"Journal of Dalian University of Technology",d:"32(12), 1925–1932"},
+ {y:2025,t:"journal",a:["ethno"],title:"Indigenous counting systems of India and their impact on numerical cognition",au:"Bardhan, R., Orey, D. C., & Rosa, M.",v:"PARADIGMA",d:"46(2), 1–23"},
+ {y:2025,t:"journal",a:["la","neut"],title:"The impact of management of interactive learning environments on mathematical proficiency: a neutrosophic overview",au:"Das, S., Mallik, R., Shil, B., Bardhan, R., & Das, A. K.",v:"Boletim da Sociedade Paranaense de Matemática",d:"43, 1–8"},
+ {y:2025,t:"journal",a:["ped"],title:"Teacher perceptions and challenges in implementing the Vidyajyoti scheme in Tripura",au:"Bardhan, R., Prasad, R., & Debnath, U.",v:"Towards Excellence",d:"17(3), 374–386"},
+ {y:2024,t:"journal",a:["ped"],title:"Pedagogical framework on the integration of Platonic solids in the 2020 STEM curriculum",au:"Bardhan, R.",v:"Towards Excellence",d:"16(3), 227–236"},
+
+ {y:2026,t:"chapter",a:["neut"],title:"Modeling uncertainty in decision systems using neutrosophic logic and blockchain-based traceability",au:"Bardhan, R., Chauhan, D., Sahni, M., & Das, A. K.",v:"Mathematical and Fuzzy Methodologies for Decision Making, Management, and Engineering",d:"CRC Press, 160–174"},
+ {y:2026,t:"chapter",a:["ethno","ped"],title:"Blending digital pedagogy and ethnomathematics for advancing education for sustainable development",au:"Bardhan, R., & Debnath, U.",v:"Reimagining Progress: Education, Economy, and Ecology for Sustainable Development",d:"CRC Press"},
+ {y:2026,t:"chapter",a:["neut"],title:"Fuzzy logic-driven governance models for responsible AI adoption in India’s legal and cybersecurity ecosystem",au:"Das, A. K., Gupta, N., Asare, E. A., Fujita, T., Patra, S., & Bardhan, R.",v:"AI Transformations in Global Legal Systems",d:"IGI Global, 301–354"},
+ {y:2026,t:"chapter",a:["la","neut"],title:"A neutrosophic framework for learning analytics under uncertainty in digital education",au:"Bardhan, R., Thakkar, M., & Pramanik, S.",v:"New Trends in Neutrosophic Theory and Applications, Vol. 5",d:"NSIA Publishing House, 26–35"},
+ {y:2025,t:"chapter",a:["ethno"],title:"Comparative effectiveness of ethnomodelling and conventional approaches in mathematics education",au:"Bardhan, R., Rosa, M., & Orey, D. C.",v:"Polysemic Interactions of Ethnomathematics as Program",d:"LF Editorial, São Paulo, 129–152"},
+ {y:2025,t:"chapter",a:["la","neut"],title:"Quantifying uncertainty in pre-PhD anxiety with a neutrosophic perspective on research aspirants",au:"Bardhan, R., Das, S., Mallik, R., Uchat, P., & Pramanik, S.",v:"New Trends in Neutrosophic Theory and Applications, Vol. 4",d:"NSIA Publishing House, 133–143"},
+ {y:2025,t:"chapter",a:["la"],title:"Improving accessibility to abstract mathematical concepts using generative multimodal explanations",au:"Pustry, R. N., & Bardhan, R.",v:"Mathematics Education in the Era of Education 4.0, Vol. 1",d:"KBD Publication, 187–199"},
+ {y:2025,t:"chapter",a:["ped"],title:"Hands-on application of trigonometry to determine heights with shadows",au:"Bardhan, R.",v:"Zero Budget Science Practical",d:"IITE Gandhinagar, 24–27"},
+
+ {y:2026,t:"book",a:["neut","la"],title:"Neutrosophic Approaches for Investigating Educational Challenges",au:"Bardhan, R., Das, S., & Smarandache, F.",v:"NSIA Publishing House, USA–Ecuador",d:"ISBN 978-1-59973-847-5"},
+ {y:2025,t:"edited",a:["la"],title:"Reimagining Higher Education with AI",au:"Bardhan, R., & Acharya, K. (Eds.)",v:"Krishna Publication House",d:"ISBN 978-81-977736-6-2"},
+ {y:2025,t:"edited",a:["ped","la"],title:"Mathematics Education in the Era of Education 4.0",au:"Chauhan, D., Bardhan, R., & Sahni, M. (Eds.)",v:"KBD Publication, New Delhi",d:"ISBN 978-81-988586-9-6"},
+
+ {y:2026,t:"conference",a:["neut"],title:"An advanced approach to weighted neutrosophic soft relations for multi-criteria decision-making: apartment selection, macroeconomic policy evaluation and water quality assessment",au:"Das, A. K., Gupta, N., Das, R., Korkmaz, E., Bardhan, R., Chowdhury, A. B., & Das, S.",v:"ICMSC-2025, in Boletim da Sociedade Paranaense de Matemática",d:"44, 1–27"},
+ {y:2022,t:"conference",a:["ped"],title:"The role of National Education Policy 2020 in developing interest in mathematical technology",au:"Bardhan, R., & Roy, P.",v:"NSTEP of NEP 2020, IASE & SCERT Tripura",d:""},
+
+ {y:2025,t:"preprint",a:["graph"],title:"Algebraic properties and Laplacians of higher-order super hypergraphs",au:"Bardhan, R., Uchat, P., Das, A. K., Das, S., & Fujita, T.",v:"Montes Taurus Journal of Pure and Applied Mathematics",d:"second round of review"},
+ {y:2025,t:"patent",a:["ped"],title:"IoT-based mathematical equation analysing device",au:"Bardhan, R., & Uchat, P.",v:"Indian Patent Office",d:"Application No. 470074-001, filed August 2025; under process"},
+
+ {y:2026,t:"thesis",a:["bicx"],title:"Algebra of bi-complex numbers",au:"Bardhan, R.",v:"M.Sc. dissertation, Indian Institute of Teacher Education",d:""},
+ {y:2026,t:"thesis",a:["la"],title:"Mathematical anxiety, need for cognition and general self-efficacy as predictors of mathematics level selection among CBSE students",au:"Bardhan, R.",v:"M.Ed. dissertation, Indian Institute of Teacher Education",d:""},
+ {y:2023,t:"thesis",a:["bicx","graph"],title:"A study on certain Diophantine equations and its application in the field of traffic network",au:"Bardhan, R.",v:"B.Sc. dissertation, Tripura University",d:""},
+
+ {y:2025,t:"talk",a:["bicx"],title:"Tauberian theorems for Cesàro summability in bi-complex number space",au:"Bardhan, R.",v:"Global Assembly for Mathematical Modelling and Analysis, ICFAI Tripura",d:""},
+ {y:2023,t:"talk",a:["bicx"],title:"Cesàro summable sequences of bi-complex numbers",au:"Bardhan, R.",v:"International Conference on Nonlinear Analysis and Applications, ADBU Assam",d:""},
+ {y:2023,t:"talk",a:["ped"],title:"Participation of women students in higher education in the mathematical sciences in Tripura",au:"Bardhan, R.",v:"NSRGIWCD, Tripura University",d:""},
+
+ {y:2025,t:"expository",a:["bicx"],title:"Mathematical frameworks for quantum innovation across disciplines",au:"Bardhan, R.",v:"Bulletin of Tripura Mathematical Society",d:"45, 22–24"},
+ {y:2024,t:"expository",a:["bicx"],title:"Representational modes and graphical representation of bi-complex numbers",au:"Bardhan, R.",v:"Bulletin of Tripura Mathematical Society",d:"44, 38–45"},
+ {y:2022,t:"expository",a:["ped"],title:"Nature’s own golden ratio: a real-life application",au:"Bardhan, R.",v:"Bulletin of Tripura Mathematical Society",d:"42, 39–41"}
+];
+
+const color = id => AREAS[id].field === "math" ? "var(--violet)" : "var(--edu)";
+const state = {area:"all", type:"all", q:""};
+
+function boldSelf(s){ return s.replace("Bardhan, R.","<strong>Bardhan, R.</strong>"); }
+
+/* ---- tally ---- */
+(function(){
+  const c = t => PUBS.filter(p=>p.t===t).length;
+  document.getElementById("tally").innerHTML =
+    `<b>${c("journal")}</b> journal articles, <b>${c("chapter")}</b> book chapters, <b>${c("book")+c("edited")}</b> books (authored or edited), <b>${c("conference")}</b> conference papers and <b>${c("patent")}</b> patent application, plus <b>25</b> manuscripts reviewed. Items spanning two areas are listed under their main area and tagged with the other.`;
+})();
+
+/* ---- research areas ---- */
+(function(){
+  const el = document.getElementById("areas");
+  el.innerHTML = Object.entries(FIELDS).map(([f,label])=>`
+    <div class="umbrella ${f}">
+      <h3>${label}</h3>
+      <div class="areas">
+        ${Object.entries(AREAS).filter(([,a])=>a.field===f).map(([id,a])=>{
+          const n = PUBS.filter(p=>p.a.includes(id)).length;
+          return `<div class="area"><h4>${a.name}</h4><p>${a.desc}</p><button type="button" data-goto="${id}">See ${n} works</button></div>`;
+        }).join("")}
+      </div>
+    </div>`).join("");
+  el.addEventListener("click",e=>{
+    const b = e.target.closest("[data-goto]"); if(!b) return;
+    selectArea(b.dataset.goto, true);
+  });
+})();
+
+/* ---- research map ---- */
+(function(){
+  const svg = document.getElementById("map");
+  const NS = "http://www.w3.org/2000/svg";
+  const pos = {neut:[110,90], graph:[70,250], bicx:[200,320], ethno:[420,90], la:[300,190], ped:[440,290]};
+  const counts = {}; Object.keys(AREAS).forEach(k=>counts[k]=PUBS.filter(p=>p.a.includes(k)).length);
+  const edges = {};
+  PUBS.forEach(p=>{ for(let i=0;i<p.a.length;i++) for(let j=i+1;j<p.a.length;j++){ const k=[p.a[i],p.a[j]].sort().join("|"); edges[k]=(edges[k]||0)+1; } });
+  const mk=(tag,attrs)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;};
+
+  // field labels
+  [["Mathematics",20,24,"var(--violet)"],["Mathematics education",500,24,"var(--edu)"]].forEach(([t,x,y,c],i)=>{
+    const tx=mk("text",{x,y,"font-size":"12","font-weight":"600",fill:c,"text-anchor":i?"end":"start"}); tx.textContent=t; svg.appendChild(tx);
+  });
+  Object.entries(edges).forEach(([k,w])=>{
+    const [a,b]=k.split("|"), [x1,y1]=pos[a], [x2,y2]=pos[b];
+    svg.appendChild(mk("line",{x1,y1,x2,y2,stroke:"var(--muted)","stroke-opacity":"0.45","stroke-width":1+w*1.4,"stroke-linecap":"round"}));
+  });
+  Object.entries(pos).forEach(([id,[x,y]])=>{
+    const r = 14 + counts[id]*2.4;
+    const g = mk("g",{class:"node",tabindex:"0",role:"button","aria-label":`${AREAS[id].name}, ${counts[id]} works. Show publications.`});
+    g.appendChild(mk("circle",{cx:x,cy:y,r,fill:color(id),"fill-opacity":"0.16",stroke:color(id),"stroke-width":"1.5"}));
+    const n = mk("text",{x,y:y+5,"text-anchor":"middle","font-size":"15","font-weight":"600",fill:color(id)}); n.textContent=counts[id]; g.appendChild(n);
+    const below = y < 300 || id==="ped";
+    const words = AREAS[id].short.split(" ");
+    const mid = Math.ceil(words.length/2);
+    const lines = words.length>2 ? [words.slice(0,mid).join(" "),words.slice(mid).join(" ")] : [AREAS[id].short];
+    lines.forEach((ln,i)=>{
+      const ly = below ? y + r + 16 + i*14 : y - r - 10 - (lines.length-1-i)*14;
+      const t = mk("text",{x,y:ly,"text-anchor":"middle","font-size":"12",fill:"var(--ink)"}); t.textContent=ln; g.appendChild(t);
+    });
+    const go=()=>selectArea(id,true);
+    g.addEventListener("click",go);
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+    svg.appendChild(g);
+  });
+})();
+
+/* ---- filters ---- */
+function chip(label,n,pressed,data){return `<button type="button" class="chip" aria-pressed="${pressed}" ${data}>${label}${n!=null?`<span class="n">${n}</span>`:""}</button>`;}
+function renderChips(){
+  const ac = document.getElementById("area-chips");
+  ac.innerHTML = `<span class="filter-label">Area</span>` + chip("All areas",PUBS.length,state.area==="all",'data-area="all"') +
+    Object.entries(AREAS).map(([id,a])=>chip(a.short,PUBS.filter(p=>p.a.includes(id)).length,state.area===id,`data-area="${id}"`)).join("");
+  const tc = document.getElementById("type-chips");
+  const present = Object.keys(TYPES).filter(t=>PUBS.some(p=>p.t===t));
+  tc.innerHTML = `<span class="filter-label">Type</span>` + chip("All types",null,state.type==="all",'data-type="all"') +
+    present.map(t=>chip(TYPES[t],null,state.type===t,`data-type="${t}"`)).join("");
+}
+document.getElementById("area-chips").addEventListener("click",e=>{const b=e.target.closest("[data-area]");if(b)selectArea(b.dataset.area,false);});
+document.getElementById("type-chips").addEventListener("click",e=>{const b=e.target.closest("[data-type]");if(!b)return;state.type=b.dataset.type;renderChips();renderPubs();});
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();renderPubs();});
+
+function selectArea(id,scroll){
+  state.area=id; renderChips(); renderPubs();
+  if(scroll) document.getElementById("publications").scrollIntoView();
+}
+
+function item(p,ctx){
+  const others = p.a.filter(x=>x!==ctx).map(x=>AREAS[x].short);
+  return `<li class="pub"><span class="pub-year">${p.y}</span><div>
+    <p class="pub-title">${p.title}</p>
+    <p class="pub-authors">${boldSelf(p.au)}</p>
+    <p class="pub-venue"><em>${p.v}</em>${p.d?`, ${p.d}`:""}</p>
+    <div class="pub-meta"><span class="badge t-${p.t}">${TYPES[p.t]}</span>${others.length?`<span class="also">Also in ${others.join(", ")}</span>`:""}</div>
+  </div></li>`;
+}
+function group(id,list){
+  const a=AREAS[id];
+  return `<div class="pub-group"><h3><span class="dot" style="background:${color(id)}"></span>${a.name}<span class="count">${list.length}</span></h3>
+    <p class="desc">${FIELDS[a.field]}</p><ul class="publist">${list.map(p=>item(p,id)).join("")}</ul></div>`;
+}
+function renderPubs(){
+  const out=document.getElementById("pubs");
+  let list = PUBS.filter(p=>(state.type==="all"||p.t===state.type) &&
+    (!state.q || (p.title+" "+p.au+" "+p.v).toLowerCase().includes(state.q)));
+  list.sort((a,b)=>b.y-a.y);
+  let html="";
+  if(state.area==="all"){
+    html = Object.keys(AREAS).map(id=>{const l=list.filter(p=>p.a[0]===id);return l.length?group(id,l):"";}).join("");
+  } else {
+    const l=list.filter(p=>p.a.includes(state.area)); html = l.length?group(state.area,l):"";
+  }
+  out.innerHTML = html || `<p class="empty">No works match these filters. <button type="button" id="reset">Show all publications</button></p>`;
+  const r=document.getElementById("reset");
+  if(r) r.addEventListener("click",()=>{state.area="all";state.type="all";state.q="";document.getElementById("q").value="";renderChips();renderPubs();});
+}
+renderChips(); renderPubs();
+</script>
 </body>
 </html>
